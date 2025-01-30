@@ -1,4 +1,5 @@
 import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 import IntroBanner from "@/components/IntroBanner";
 import Navbar from "@/components/Navbar";
 import Pricing from "@/components/Pricing";
@@ -10,9 +11,10 @@ export default function Home() {
     <div className="w-full">
       <Navbar />
       <IntroBanner />
-      <Supporters/>
+      <Supporters />
       <Pricing />
       <FAQ />
+      <Footer />
     </div>
   );
 }
