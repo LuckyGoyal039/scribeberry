@@ -1,10 +1,10 @@
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/Herosection";
 import IntroBanner from "@/components/IntroBanner";
 import Navbar from "@/components/Navbar";
 import Pricing from "@/components/Pricing";
 import Supporters from "@/components/Supporters";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
       <Supporters />
       <Pricing />
       <FAQ />
+      <HeroSection />
       <Footer />
     </div>
   );
