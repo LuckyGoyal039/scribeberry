@@ -47,7 +47,7 @@ const Pricing = (): JSX.Element => {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center py-12 px-6 bg-gray-50 min-h-screen">
+    <section id="price" className="flex flex-col items-center justify-center py-12 px-6 bg-gray-50 min-h-screen">
       <span className="text-xs uppercase font-semibold text-blue-600 bg-blue-50 px-4 py-1 rounded-xl">
         PRICING
       </span>
@@ -126,7 +126,7 @@ const Pricing = (): JSX.Element => {
           period={isYearly}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

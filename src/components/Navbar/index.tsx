@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const router = useRouter()
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -16,7 +18,14 @@ const Navbar = () => {
         }
     };
 
-    const navigationItems = ['Home', 'Pricing', 'FAQ', 'Blog', 'App', 'Data Privacy'];
+    const navigationItems = [
+        { value: 'Home', link: '/' },
+        { value: 'Pricing', link: '/#price' },
+        { value: 'FAQ', link: '/#faq' },
+        { value: 'Blog', link: '/#blog' },
+        { value: 'App', link: '/#app' },
+        { value: 'Data Privacy', link: '/#data-privacy' }
+    ];
 
     return (
         <>
@@ -27,17 +36,17 @@ const Navbar = () => {
                         <Link href="/" className="flex items-center">
                             <Image src="/images/logo-full.png" alt="Scribeberry Logo" width={150} height={30} />
                         </Link>
-                        
+
                         {/* Desktop/Tablet Navigation */}
                         <div className="hidden lg:block">
                             <ul className="font-medium flex flex-row space-x-8 text-sm">
                                 {navigationItems.map((item) => (
-                                    <li key={item}>
+                                    <li key={item.value}>
                                         <Link
-                                            href={item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase()}`}
+                                            href={item.link}
                                             className="block py-2 text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500"
                                         >
-                                            {item}
+                                            {item.value}
                                         </Link>
                                     </li>
                                 ))}
@@ -48,12 +57,11 @@ const Navbar = () => {
                     {/* Mobile/Tablet menu button */}
                     <div className="flex lg:hidden items-center gap-4">
                         {/* Show Login link in tablet view */}
-                        <Link
-                            href="https://app.scribeberry.com/auth/signin"
+                        <button onClick={() => router.push("/auth/signin")}
                             className="text-sm text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500"
                         >
                             Login
-                        </Link>
+                        </button>
                         <button
                             onClick={toggleSidebar}
                             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -69,12 +77,12 @@ const Navbar = () => {
 
                     {/* Desktop CTA buttons */}
                     <div className="hidden lg:flex items-center gap-5 text-sm">
-                        <Link
-                            href="https://app.scribeberry.com/auth/signin"
+                        <button
+                            onClick={() => router.push("/auth/signin")}
                             className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500"
                         >
                             Log in or Sign up
-                        </Link>
+                        </button>
                         <Link
                             href="#"
                             className="border-2 rounded-3xl border-indigo-500 px-6 py-2 hover:bg-indigo-500 transition-colors"
@@ -86,17 +94,15 @@ const Navbar = () => {
 
                 {/* Mobile/Tablet Sidebar Overlay */}
                 <div
-                    className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
-                        isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                    }`}
+                    className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}
                     onClick={toggleSidebar}
                 />
-                
+
                 {/* Mobile/Tablet Sidebar */}
                 <div
-                    className={`fixed top-0 right-0 h-full w-[300px] bg-white dark:bg-gray-800 z-50 transform transition-transform duration-300 ease-in-out ${
-                        isOpen ? 'translate-x-0' : 'translate-x-full'
-                    } lg:hidden`}
+                    className={`fixed top-0 right-0 h-full w-[300px] bg-white dark:bg-gray-800 z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+                        } lg:hidden`}
                 >
                     <div className="p-6">
                         <button
@@ -118,22 +124,21 @@ const Navbar = () => {
                                 />
                             </svg>
                         </button>
-                        
+
                         <div className="mt-8">
                             <ul className="space-y-4">
                                 {navigationItems.map((item) => (
-                                    <li key={item} className='text-center bg-gray-900 rounded-3xl'>
+                                    <li key={item.value}>
                                         <Link
-                                            href={item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase()}`}
-                                            className="block py-2 text-lg text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500"
-                                            onClick={toggleSidebar}
+                                            href={item.link}
+                                            className="block py-2 text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500"
                                         >
-                                            {item}
+                                            {item.value}
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
-                            
+
                             <div className="mt-8 space-y-4">
                                 <Link
                                     href="#"

@@ -9,6 +9,7 @@ import SurgeonsAvatar from '@/public/images/e.png';
 import NurseAvatar from '@/public/images/f.png';
 import SpecialistsAvatar from '@/public/images/g.png';
 import SbDemo1 from '@/public/images/sb-demo-1.gif';
+import { useRouter } from 'next/navigation';
 
 interface UserType {
   role: string;
@@ -24,6 +25,7 @@ const users: UserType[] = [
 ];
 
 export default function IntroBanner() {
+  const router=useRouter()
   return (
     <div className="min-h-screen bg-slate-900 text-white">
       <Head>
@@ -43,7 +45,9 @@ export default function IntroBanner() {
         </p>
 
         <div className="flex flex-col items-center justify-center gap-3 w-full">
-          <button className="bg-[#3f3eed] hover:bg-[#4141f9] text-white px-6 py-3 rounded-full text-sm w-full md:w-auto">
+          <button 
+          onClick={()=>router.push("/auth/signin")}
+          className="bg-[#3f3eed] hover:bg-[#4141f9] text-white px-6 py-3 rounded-full text-sm w-full md:w-auto">
             Log in or Sign up (free trial)
           </button>
           <button className="text-gray-400 hover:text-gray-300 text-sm w-full md:w-auto">
