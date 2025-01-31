@@ -9,28 +9,29 @@ interface PricingCardProps {
   features: string[];
   isHighlighted?: boolean;
   buttonText?: string;
+  period: boolean
 }
 
 const Pricing = (): JSX.Element => {
   const [isYearly, setIsYearly] = useState<boolean>(true);
 
-  const PricingCard = ({ 
-    title, 
-    price, 
-    description, 
-    features, 
-    isHighlighted = false, 
-    buttonText = "Get Started" 
+  const PricingCard = ({
+    title,
+    price,
+    description,
+    features,
+    isHighlighted = false,
+    buttonText = "Get Started",
+    period = true
   }: PricingCardProps): JSX.Element => (
-    <div className={`bg-white shadow-lg rounded-2xl p-6 text-center border border-gray-200 ${
-      isHighlighted ? 'ring-2 ring-blue-500' : ''
-    }`}>
+    <div className={`bg-white shadow-lg rounded-2xl p-6 text-center border border-gray-200 ${isHighlighted ? 'ring-2 ring-blue-500' : ''
+      }`}>
       <h3 className={`text-xl font-semibold ${isHighlighted ? 'text-blue-600' : 'text-gray-900'}`}>
         {title}
       </h3>
       {price && (
         <p className="text-4xl font-bold text-gray-900 mt-4">
-          ${price} <span className="text-lg">/ month</span>
+          ${price} <span className="text-lg">/{period ? "Yearly" : "Month"}</span>
         </p>
       )}
       <p className="text-gray-600 mt-2">{description}</p>
@@ -89,6 +90,7 @@ const Pricing = (): JSX.Element => {
             'Basic support'
           ]}
           buttonText="Start for Free"
+          period={isYearly}
         />
 
         <PricingCard
@@ -106,6 +108,7 @@ const Pricing = (): JSX.Element => {
           ]}
           isHighlighted={true}
           buttonText="Subscribe now"
+          period={isYearly}
         />
 
         <PricingCard
@@ -120,6 +123,7 @@ const Pricing = (): JSX.Element => {
             'Custom user training'
           ]}
           buttonText="Contact Us"
+          period={isYearly}
         />
       </div>
     </div>

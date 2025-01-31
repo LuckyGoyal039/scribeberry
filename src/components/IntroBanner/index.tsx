@@ -17,10 +17,10 @@ interface UserType {
 }
 
 const users: UserType[] = [
-  { role: 'Family doctors', avatar: DoctorAvatar, style: 'left-[80px]' },
-  { role: 'Surgeons', avatar: SurgeonsAvatar, style: 'left-[200px] top-[300px]' },
-  { role: 'Nurse practitioners', avatar: NurseAvatar, style: 'right-[80px]' },
-  { role: 'Specialists', avatar: SpecialistsAvatar, style: 'right-[200px] top-[300px]' }
+  { role: 'Family doctors', avatar: DoctorAvatar, style: 'left-[30px] 2xl:left-[80px]' },
+  { role: 'Surgeons', avatar: SurgeonsAvatar, style: 'left-[100px] 2xl:left-[200px] top-[300px]' },
+  { role: 'Nurse practitioners', avatar: NurseAvatar, style: 'right-[30px] 2xl:right-[80px]' },
+  { role: 'Specialists', avatar: SpecialistsAvatar, style: 'right-[100px] 2xl:right-[200px] top-[300px]' }
 ];
 
 export default function IntroBanner() {
@@ -63,7 +63,7 @@ export default function IntroBanner() {
             ))}
           </div>
 
-          <div className="bg-white rounded-xl max-w-4xl mx-auto text-gray-800 mt-16">
+          <div className="bg-white rounded-xl max-w-xl xl:max-w-4xl  mx-auto text-gray-800 mt-16">
             <div className="w-full h-[250px] md:h-[500px]">
               <Image src={SbDemo1} alt="SB Demo" className='rounded-xl' />
             </div>

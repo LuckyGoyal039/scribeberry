@@ -77,7 +77,7 @@ const Navbar = () => {
                         </Link>
                         <Link
                             href="#"
-                            className="border-2 rounded-3xl border-indigo-500 px-6 py-2 hover:bg-indigo-50 transition-colors"
+                            className="border-2 rounded-3xl border-indigo-500 px-6 py-2 hover:bg-indigo-500 transition-colors"
                         >
                             Request a Demo
                         </Link>
@@ -137,7 +137,7 @@ const Navbar = () => {
                             <div className="mt-8 space-y-4">
                                 <Link
                                     href="#"
-                                    className="block border-2 rounded-3xl border-indigo-500 px-6 py-3 text-center hover:bg-indigo-50 transition-colors text-lg"
+                                    className="block border-2 rounded-3xl border-indigo-500 px-6 py-3 text-center text-lg hover:bg-indigo-700"
                                     onClick={toggleSidebar}
                                 >
                                     Request a Demo
