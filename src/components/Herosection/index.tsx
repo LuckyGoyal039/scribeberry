@@ -1,9 +1,12 @@
+'use client'
 import React from 'react';
 import Image from 'next/image';
 import { Check, ArrowRight } from 'lucide-react';
 import TalkBack from '@/public/images/3-talk_back.gif';
+import { useRouter } from 'next/navigation';
 
 const HeroSection = () => {
+  const router=useRouter()
   return (
     <div className="relative min-h-[50vh] mt-[-1px]">
       {/* First Half: White */}
@@ -40,7 +43,9 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <button className="bg-indigo-600 hover:bg-indigo-700 transition-colors px-3 md:px-6 py-3 rounded-lg text-white inline-flex items-center gap-2 text-sm md:text-lg">
+            <button
+              onClick={() => router.push("/auth/signin")}
+              className="bg-indigo-600 hover:bg-indigo-700 transition-colors px-3 md:px-6 py-3 rounded-lg text-white inline-flex items-center gap-2 text-sm md:text-lg">
               Log in or Sign up (free trial)
               <ArrowRight className="w-4 h-4" />
             </button>

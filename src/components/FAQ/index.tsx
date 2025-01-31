@@ -47,7 +47,7 @@ export default function FAQ() {
     };
 
     return (
-        <div className="bg-[#f8f9fa] flex justify-center items-center pb-20">
+        <section id="faq" className="bg-[#f8f9fa] flex justify-center items-center pb-20">
             <div className='max-w-3xl mt-5 px-5 lg:px-0'>
                 <h2 className="text-[25px] md:text-3xl font-bold text-center mb-6 text-gray-600">Frequently Asked Questions</h2>
                 <p className="text-center text-gray-500 mb-6">
@@ -75,6 +75,6 @@ export default function FAQ() {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
